@@ -28,7 +28,7 @@ public class Account {
     }
 
     public void produceStatement() {
-        // In a real application, you might generate a PDF or formatted string here
+
     }
 
     public String getStatement() {
