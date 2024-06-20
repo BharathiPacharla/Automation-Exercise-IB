@@ -19,38 +19,16 @@ public class AccountSteps {
     }
 
     @Given("^deposits are made$")
-    public void depositsAreMade(List<Map<String, String>> deposits) {
-        for (Map<String, String> deposit : deposits) {
-            for (Map.Entry<String, String> entry : deposit.entrySet()) {
-                String label = entry.getKey();
-                String amountStr = entry.getValue();
-                try {
-                    double amount = Double.parseDouble(amountStr);
-                    account.deposit(label, amount);
-                } catch (NumberFormatException e) {
-                    System.err.println("Invalid amount format for deposit: " + amountStr);
-                } catch (NullPointerException e) {
-                    System.err.println("Null value encountered for deposit: " + amountStr);
-                }
-            }
+    public void depositsAreMade(Map<String, Double> deposits) {
+        for (Map.Entry<String, Double> entry : deposits.entrySet()) {
+            account.deposit(entry.getKey(), entry.getValue());
         }
     }
 
     @Given("^withdrawls are made$")
-    public void withdrawalsAreMade(List<Map<String, String>> withdrawals) {
-        for (Map<String, String> withdrawal : withdrawals) {
-            for (Map.Entry<String, String> entry : withdrawal.entrySet()) {
-                String label = entry.getKey();
-                String amountStr = entry.getValue();
-                try {
-                    double amount = Double.parseDouble(amountStr);
-                    account.withdraw(label, amount);
-                } catch (NumberFormatException e) {
-                    System.err.println("Invalid amount format for withdrawal: " + amountStr);
-                } catch (NullPointerException e) {
-                    System.err.println("Null value encountered for withdrawal: " + amountStr);
-                }
-            }
+    public void withdrawalsAreMade(Map<String, Double> withdrawals) {
+        for (Map.Entry<String, Double> entry : withdrawals.entrySet()) {
+            account.withdraw(entry.getKey(), entry.getValue());
         }
     }
 

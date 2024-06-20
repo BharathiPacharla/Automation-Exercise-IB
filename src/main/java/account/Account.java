@@ -22,7 +22,7 @@ public class Account {
         balance += amount;
     }
 
-    public void withdraw(String label, double amount) {
+    public void withdraw(String label, Double amount) {
         transactions.add(new Transaction(label, -amount));
         balance -= amount;
     }
