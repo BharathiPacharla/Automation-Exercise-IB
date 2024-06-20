@@ -37,8 +37,8 @@ Feature: The user can change their own password
       Then I should see an error message "<error_message>"
 
       Examples:
-        | current_username | current_password | new_password | confirm_password | error_message                           |
-        | "user123"        | "oldPassword"    | "short"      | "short"          | "Password must be at least 6 characters." |
-        | "user123"        | "oldPassword"    | "password123"| "password123"    | "Password must contain at least one special character." |
-        | "user123"        | "oldPassword"    | "ValidPass!" | "ValidPass!"     | "Password must contain at least one number." |
+        | current_username | current_password | new_password  | confirm_password | error_message                                           |
+        | "user123"        | "oldPassword"    | "sh"          | "sh"             | "Password must be at least 3 characters."               |
+        | "user123"        | "oldPassword"    | "password123" | "password123"    | "Password must contain at least one special character." |
+        | "user123"        | "oldPassword"    | "ValidPass!"  | "ValidPass!"     | "Password must contain at least one number."            |
 
